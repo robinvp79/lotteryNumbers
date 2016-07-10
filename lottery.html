@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lottery Numbers by JV</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<style type="text/css">
+		html {
+			background: url('assets/images/lottery.jpg') no-repeat center fixed;
+			background-size: cover;
+		}
+		#myBtn{
+			width: 250px;
+   			background-color: #ffab40;
+   			color: white;
+   			font-size: 130%;
+		}
+		#container , #numbers{
+			margin: auto;
+		    width: 50%;
+		    border: 5px solid #73AD21;
+		    padding: 10px;
+		    background-color: white;
+		    margin-top: 40px;
+		    text-align: center;
+		}
+		#numbers{
+			font-size: 200%;
+			font-weight: bolder;
+			padding: 20px;
+		}
+	</style>
+
+</head>
+<body>
+
+	<div id="container">
+		<h1>Get your lucky numbers for Mega Millions</h1>
+		<input type="submit" value="Get my lottery numbers" id="myBtn"/>
+		<br><br>
+	</div>
+	<div id="numbers">
+		<h4>Your numbers are ....</h4>
+	</div>
+	<script type="text/javascript">
+		$('#myBtn').click('submit',function(){
+			var nums = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75];
+		    ranNums = [],
+		    j = 0,
+		    k = 0;
+			var text="Your numbers are: ";
+			while (k<5) {
+				var i = nums.length;
+			    j = parseInt(Math.random()*i);
+			    console.log(j);
+			    ranNums.push(nums[j]);
+			    text +=nums[j]+", "
+			    nums.splice(j,1);
+			    k++;
+			}
+			console.log(ranNums);
+			text += "<br>";
+			text += "The mega ball number is : ";
+			var megaNumber = parseInt((Math.random()*15)+1);
+			text += megaNumber;
+			document.getElementById("numbers").innerHTML=text;
+		});
+	</script>
+
+</body>
+</html>
